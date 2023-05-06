@@ -2,6 +2,7 @@ const express = require("express");
 const Connect = require("./Database/db");
 const Route = require("./Routes/router.js");
 const cors = require("cors");
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.use("/", Route);
 app.get("/", Route);
 
 
-app.listen(8080, async () => {
+app.listen(PORT, async () => {
   await Connect();
-  console.log(`Server start at port - http://localhost:8080}`);
+  console.log(`Server start at port - http://localhost:${PORT}`);
 });
